@@ -1,0 +1,80 @@
+<html>
+
+	<head>
+		<title>MyBank Site</title>
+		
+		<link rel="stylesheet" href="style.css">
+		<script>
+			function setROI(type){
+				if(type == "homeLoan"){
+					document.getElementById("roi").value= 7;
+					document.getElementById("duration").setAttribute("max","25");
+				}
+				else if(type == "personalLoan"){
+					document.getElementById("roi").value= 12;
+					document.getElementById("duration").setAttribute("max","5");
+				}
+				else {
+					document.getElementById("roi").value= 9;
+					document.getElementById("duration").setAttribute("max","7");
+				}
+			}	
+		</script>
+		<script src="emiCalculator.js" ></script>
+		<div id="heading">MyBank Pvt. Ltd.</div>
+		
+		<nav>
+			<a href="index.html">HOME</a> |
+			<a href="AboutUs.html">ABOUT US</a> |
+			<a href="LoginPage.html">NETBANKING</a> |
+			<a href="Services.html">SERVICES</a> |
+			<a href="ContactUs.html">CONTACT US</a>
+		</nav>
+	</head>
+<body>
+	<h1 style="text-align:center">Loans</h1>
+		<p style="text-align:center">
+			Buy a home or car or get home the latest gadgets… 
+			MyBank helps you achieve a variety of goals with a wide range of loan products.
+		</p>
+		
+		<div class="divForm">
+			<form action="#" style="padding:50px">
+					<table>
+						<tr>
+							<td>Applicant Name:</td> <td><input type="text" name="borrowerName" id="borrowerName" required placeholder="Enter your Name*"/></td>
+						</tr>
+						<tr>
+							<td>Principal Amount:</td> <td><input type="number" name="amountLent" id="amountLent" required /></td>
+						</tr>
+						<tr>
+							<td>Type Of Loan:</td> <td>
+													<select name="typeOfLoan" id="typeOfLoan" onchange="setROI(this.value)">
+															<option value="homeLoan">Home Loan</option>
+															<option value="personalLoan">Personal Loan</option>
+															<option value="carLoan">Car Loan</option>
+													</select>
+												</td>
+						</tr>
+						<tr>
+							<td>Rate of Interest:</td> <td><input type="text" name="roi" id="roi" value="7" disabled size="1"/>%</td>
+						</tr>
+						<tr>
+							<td>Duration:</td> <td><input type="number" name="duration" id="duration" max="25" required />years</td>
+						</tr>
+						<tr>
+							<td>EMI:</td> <td><input type="text" name="emi" id="emi" disabled placeholder="Click on Calculate button below to calculate EMI"/></td>
+						</tr>				
+						
+						<tr>
+							<td colspan="2"><button type="button" onclick="loanEMICalculator()">Calculate EMI</button></td>
+						</tr>
+					</table>
+				</form>
+		</div>
+</body>
+<footer>
+	<p>© 2018 MyBank. All rights reserved</p>
+</footer>
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+
+	<head>
+		<title>MyBank Site</title>
+		
+		<link rel="stylesheet" href="style.css">
+		
+		<script>
+			function setROI(duration){
+				if(duration == "zeroToTwo"){
+					document.getElementById("roi").value = 5;
+				}
+				else if(duration == "TwoToFive"){
+					document.getElementById("roi").value = 6;
+				}
+				else{
+					document.getElementById("roi").value = 7;
+				}
+			}
+		</script>
+		<script src="emiCalculator.js"></script>
+		
+		<div id="heading">MyBank Pvt. Ltd.</div>
+		
+		<nav>
+			<a href="index.html">HOME</a> |
+			<a href="AboutUs.html">ABOUT US</a> |
+			<a href="LoginPage.html">NETBANKING</a> |
+			<a href="Services.html">SERVICES</a> |
+			<a href="ContactUs.html">CONTACT US</a>
+		</nav>
+	</head>
+<body>
+	<h1 style="text-align:center"> Fixed Deposit </h1>
+	<div class="divForm">
+			<form action="#" style="padding:50px">
+					<table>
+						<tr>
+							<td>Principal Amount:</td> <td><input type="number" name="amount" id="amount" required placeholder="Enter principle amount*"/></td>
+						</tr>
+						<tr>
+							<td>Duration:</td> <td>
+													<select name="tenure" id="tenure" onchange="setROI(this.value)">
+															<option value="zeroToTwo">0-2 Years</option>
+															<option value="TwoToFive">2-5 Years</option>
+															<option value="FiveToTen">5-10 Years</option>
+													</select>
+												</td>
+						</tr>
+						<tr>
+							<td>Rate of Interest:</td> <td><input type="text" name="roi" id="roi" value="5" disabled size="1"/>%</td>
+						</tr>
+						<tr>
+							<td>Maturity Value:</td> <td><input type="text" name="maturityVal" id="maturityVal" disabled placeholder="Click on Calculate button below to calculate Maturity Value"/></td>
+						</tr>				
+						
+						<tr>
+							<td colspan="2"><button type="button" onclick="fdMaturityCalculator()">Calculate Maturity Value</button></td>
+						</tr>
+					</table>
+				</form>
+		</div>
+</body>
+<footer>
+	<p>© 2018 MyBank. All rights reserved</p>
+</footer>
+
+</html>
